@@ -10,13 +10,8 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("/src/pages/")) {
-            const match = id.match(/\/src\/pages\/([^/]+)\.(?:ts|tsx)$/);
-            if (match) {
-              console.log(`Creating chunk for page: ${match}`);
-              return `page-${match[1]}`;
-            }
-          }
+          const match = id.match(/[\\/]src[\\/](pages|components)[\\/]([^/?]+)\.(?:ts|tsx)(?:\?.*)?$/);
+          return match && `${match[1] === "pages" ? "page" : "component"}-${match[2]}`;
         },
       },
     },

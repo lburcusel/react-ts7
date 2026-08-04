@@ -1,7 +1,8 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
 import type { ComponentType } from "react";
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+
+const Navbar = lazy(() => import("./components/Navbar"));
+const Footer = lazy(() => import("./components/Footer"));
 
 type PageWrapperProps = {
   Page: ComponentType;
