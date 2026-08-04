@@ -1,11 +1,102 @@
 .predictions-page {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
   min-height: 90vh;
+  padding: 2rem 1rem 3rem;
 }
 
 .predictions-page h1 {
   margin: 0;
+}
+
+.predictions-page > div:first-of-type {
+  display: flex;
+  justify-content: center;
+}
+
+.predictions-page button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.7rem 1.1rem;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.predictions-page button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.predictions-page button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.predictions-page__timestamp {
+  margin: 0;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.predictions-page__cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  width: min(720px, 100%);
+}
+
+.coin-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.7rem;
+  padding: 1.25rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--card-bg), rgba(255, 255, 255, 0.02));
+  box-shadow: var(--shadow);
+}
+
+.coin-card__header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.coin-card__symbol {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.coin-card h2 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.coin-card p {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-h);
+}
+
+.predictions-page p[role="alert"] {
+  margin: 0;
+  color: #ff7b7b;
 }
 
 .predictions-link {
@@ -13,11 +104,18 @@
   align-items: center;
   justify-content: center;
   padding: 10px 16px;
-  border-radius: 999px;
+  /* border-radius: 999px; */
   background: var(--accent-bg);
-  color: var(--text-h);
+  color: var(--accent);
   text-decoration: none;
   font-weight: 600;
+}
+
+@media (max-width: 640px) {
+  .predictions-page__cards {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
 }
 
 .counter {
