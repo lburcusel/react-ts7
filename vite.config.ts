@@ -7,5 +7,18 @@ export default defineConfig({
   base: "/react-ts7/",
   build: {
     outDir: "react-ts7",
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes("/src/pages/")) {
+            const match = id.match(/\/src\/pages\/([^/]+)\.(?:ts|tsx)$/);
+            if (match) {
+              console.log(`Creating chunk for page: ${match}`);
+              return `page-${match[1]}`;
+            }
+          }
+        },
+      },
+    },
   },
 });
