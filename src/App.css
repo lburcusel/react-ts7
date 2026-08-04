@@ -1,7 +1,7 @@
 .predictions-page {
   display: grid;
   place-items: center;
-  min-height: 100vh;
+  min-height: 90vh;
 }
 
 .predictions-page h1 {
@@ -242,5 +242,38 @@
   &::after {
     right: 0;
     border-right-color: var(--border);
+  }
+}
+
+.app-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+.app-footer__text {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.app-footer__nav {
+  display: flex;
+  gap: 1rem;
+}
+
+.app-footer__nav a {
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .app-footer {
+    flex-direction: column;
+    text-align: center;
   }
 }
