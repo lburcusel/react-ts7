@@ -29,3 +29,29 @@ pnpm lint
 ```bash
 pnpm build
 ```
+
+### Checking for oudated packages
+
+```bash
+pnpm outdated
+```
+
+### Upgrading the packages
+
+```bash
+# All outdated packages
+pnpm update
+
+# Only specific package
+pnpm update <package>
+```
+
+### Checking / Fixing security issues
+
+```bash
+# Checking
+pnpm audit
+
+# Fixing
+pnpm audit --fix
+```
